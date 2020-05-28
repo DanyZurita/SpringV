@@ -2,22 +2,32 @@ package org.formacio.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="t_factures")
 public class Factura {
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="fac_id")
 	private Long id;
 	
-	@Column(name="fac_client")
+	@ManyToOne
+	@JoinColumn(name="fac_client")
 	private Client client;
 	
+	@OneToMany
+	@JoinColumn(name="lin_factura")
 	private Set<LiniaFactura> linies = new HashSet<>();
 
 	public Long getId() {
