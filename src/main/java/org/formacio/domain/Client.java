@@ -1,8 +1,6 @@
 package org.formacio.domain;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="t_clients")
 public class Client {
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
 	@Column(name="cli_nom")
 	private String nom;
 	
