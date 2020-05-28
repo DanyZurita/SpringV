@@ -26,7 +26,7 @@ public class Factura {
 	@JoinColumn(name="fac_client")
 	private Client client;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="lin_factura")
 	private Set<LiniaFactura> linies = new HashSet<>();
 
